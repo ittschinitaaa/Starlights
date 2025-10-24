@@ -32,6 +32,7 @@ module.exports = {
 *🎬 Canal:* ${canal}
 *👀 Vistas:* ${vistas}
 *⏳ Duración:* ${timestamp}
+*🤩 Calidad:* 200kbps
 *📆 Publicado:* ${ago}
 *🔗 Link:* ${url}`.trim();
 
@@ -54,7 +55,7 @@ module.exports = {
       await client.sendMessage(m.chat, { text: infoMessage, mentions: [m.sender], ...external }, { quoted: m });
 
       // Descarga el audio
-      const res = await fetch(`https://api.vreden.my.id/api/v1/download/youtube/audio?url=${url}&quality=130`);
+      const res = await fetch(`https://api.vreden.my.id/api/v1/download/youtube/audio?url=${url}&quality=200`);
       const json = await res.json();
 
       if (!json.result?.download?.url) throw '*⚠️ No se obtuvo un enlace válido.*';
